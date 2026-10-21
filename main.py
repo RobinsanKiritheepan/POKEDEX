@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 import requests
+from schemas.pokemon import Pokemon
 
 app = FastAPI()
 
@@ -22,4 +23,3 @@ def read_pokemon(number: int):
     else:
         raise HTTPException(status_code=404, detail="Pokemon not found")
 
-    
