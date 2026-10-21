@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 import requests
-from pydantic import BaseModel
+from schemas.pokemon import Pokemon
 
 app = FastAPI()
 
@@ -23,12 +23,3 @@ def read_pokemon(number: int):
     else:
         raise HTTPException(status_code=404, detail="Pokemon not found")
 
-    class Pokemon(BaseModel):
-        number: int
-        name: str
-        name_fr: str
-        types: list[str]
-        image_url: str
-        height: int
-        weight: int
-        evolves_from_number: int | None = None
