@@ -8,7 +8,7 @@ app = FastAPI()
 def read_health():
     return {"status": "ok"}
 @app.get("/pokemons/{number}")
-def read_pokemon_number(number: int):
+def read_pokemon(number: int):
     URL = f"https://pokeapi.co/api/v2/pokemon/{number}"
     appel_pokeAPI = requests.get(URL)
     if appel_pokeAPI.status_code == 200:
@@ -21,4 +21,5 @@ def read_pokemon_number(number: int):
         }
     else:
         raise HTTPException(status_code=404, detail="Pokemon not found")
+
     
