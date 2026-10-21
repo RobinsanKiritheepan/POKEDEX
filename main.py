@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
 import requests
 from schemas.pokemon import Pokemon
+from db.database import get_connection
 
 app = FastAPI()
 
